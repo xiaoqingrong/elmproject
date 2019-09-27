@@ -1,0 +1,80 @@
+.main{
+    background-color: #f2f2f2;
+}
+/* 当前城市定位开始 */
+.localCity {
+    background-color:#ffffff;
+}
+.localCity div{
+    display: flex;
+    padding: 10px 10px;
+}
+.localCity span:nth-child(1){
+    flex: 1;
+    font-size: 13px;
+    color: #666;
+}
+.localCity span:nth-child(2){
+    flex: 2;
+    font-size: 13px;
+    color: #666;
+    text-align: right;
+}
+.localCity p{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+}
+.localCity p a{
+    flex: 16;
+    text-decoration: none;
+    color: #24c0fd;
+    
+}
+.localCity p i{
+    flex: 1;
+}
+/* 当前城市定位结束 */
+
+/* 热门城市开始 */
+.hotCity{
+    background-color:#ffffff;
+    margin-top: 20px;
+}
+.hotCity h5{
+    padding: 10px;
+    font-weight: 400;
+    margin:0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.hotCity ul,.groupItem{
+    display: flex;
+    flex-wrap: wrap;
+}
+.hotCity li{
+    color: #24c0fd;
+}
+.hotCity li,.groupItem li{
+    width: 25%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    
+}
+.hotCity li:nth-child(4n){
+    border-right: none;
+}
+
+.group_city_container>li{
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+.group_city_container h4{
+    padding: 10px;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
