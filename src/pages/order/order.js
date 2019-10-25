@@ -1,12 +1,11 @@
-import React from 'react';
+import React,{Component} from 'react';
 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-export default class Order extends React.Component{
+export default class Order extends Component{
     constructor(props){
         super(props)
         this.state={
-            name:'Order'
         }
     }
     render(){
@@ -14,7 +13,9 @@ export default class Order extends React.Component{
             <div>
                 <Header/>
                 Order
-                <Footer/>
+                <Footer goBack3={()=>{
+                        this.props.history.push('./order'); 
+                    }}/>
             </div>
         )
     }

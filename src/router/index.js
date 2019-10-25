@@ -6,14 +6,15 @@ import Search from '../pages/search/search';
 import Order from '../pages/order/order';
 import Self from '../pages/self/self';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+
 export default class RouteConfig extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            name:'22'
         }
     }
-    render(){
+    render(){ 
         return(
             <BrowserRouter>
                 <Switch>
@@ -25,6 +26,6 @@ export default class RouteConfig extends React.Component{
                         <Route path="/self" component={Self}/>
                 </Switch>
             </BrowserRouter>
-        )
+        )  
     }
 }

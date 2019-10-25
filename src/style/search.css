@@ -1,0 +1,25 @@
+.searchInp{
+    height: 60px;
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+}
+.searchInp input{
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.searchInp input:nth-child(1){
+    flex: 4;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+    background-color: #f4f4f4;
+    padding: 0 10px;
+}
+.searchInp button:nth-child(2){
+    flex: 1;
+    background-color:#1E90FF;
+    color: #fff;
+    border-radius: 4px;
+}

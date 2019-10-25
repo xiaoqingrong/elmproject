@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{Component} from 'react';
 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-export default class Self extends React.Component{
+export default class Self extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -14,7 +14,9 @@ export default class Self extends React.Component{
             <div>
                 <Header/>
                 Self
-                <Footer/>
+                <Footer goBack4={()=>{
+                        this.props.history.push('./self'); 
+                    }}/>
             </div>
         )
     }

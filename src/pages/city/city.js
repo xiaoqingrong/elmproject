@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import 'antd/dist/antd.css'; 
 import { Button } from 'antd';
 
 import Header from '../../components/header/header';
 
 import fetchRequest from '../../config/fetch';
-export default class City extends React.Component{
+export default class City extends Component{
     constructor(props){
         super(props)
         this.state={
             hdTitle:'',
-            isLogin:'',
+            isLogin:this.props.location.state.city?this.props.location.state.city:false,
             search:'',
             historyKey:[],
             historyList:[],
@@ -18,15 +18,19 @@ export default class City extends React.Component{
             historyTitle:[],
             title:'',
             subTitle:'',
-            sumtitle:[]
+            sumtitle:[],
+            kkk:[]
         }
     }
     render(){
         
         return(
             <div style={{backgroundColor:'#f2f2f2'}}>
-                <Header isLogin={this.state.isLogin} city={this.state.hdTitle} goBack={()=>{
-                    this.props.history.push('/'); 
+                <Header 
+                    isLogin={this.state.isLogin} 
+                    city={this.state.hdTitle} 
+                    goBack={()=>{
+                        this.props.history.go(-1); 
                     }}/>
                 <div style={{backgroundColor:'#ffffff',textAlign:'center',padding:'3px',borderTop:'1px solid #ccc',borderBottom:'1px solid #ccc',marginTop:'10px'}}>
                     <div>
@@ -59,9 +63,9 @@ export default class City extends React.Component{
                             <li key={index} style={{padding:'10px 20px',borderBottom:'1px solid #ccc'}}>
                                 {
                                    <ul key={index} onClick={()=>{
-                                    //    this.state.title = this.state.historyList[index].name;
-                                    //    this.state.subTitle = this.state.historyList[index].address;
-                                    //     this.historyTitle();
+                                       this.state.title = this.state.historyList[index].name;
+                                       this.state.subTitle = this.state.historyList[index].address;
+                                        this.historyTitle();
                                        this.props.history.push({
                                            pathname:'./msiteIndex',state:{lat:this.state.historyList[index].latitude,log:this.state.historyList[index].longitude}}
                                        )}
@@ -74,33 +78,18 @@ export default class City extends React.Component{
                         ))
                         }
                     </ul>}
-                   {/* { this.state.isClear!==""?"":} */}
                 </div>
             </div>
         )
     }
     componentWillMount(){
         this.headTitle();
-        this.changeLogin();
-        // this.searchAdd();
     }
     // 点击哪一个城市进来的
     headTitle(){
         this.setState({
             hdTitle:this.props.location.state.city
         });
-    }
-    // 头部有边文字
-    changeLogin(){
-        if(this.props.location.state.city !== ""){
-            this.setState({
-                isLogin:true
-            })
-        }else{
-            this.setState({
-                isLogin:true
-            })
-        }
     }
     // 地址信息输入框
     inpChange=(e)=>{
@@ -113,10 +102,7 @@ export default class City extends React.Component{
     okBtn=()=>{
         if(this.state.search!==""){
             this.setState({
-                // historyKey:'',
-                // historyList:''
                 isClear:"212"
-                
             })
             fetchRequest('/v1/pois?city_id='+this.props.location.state.id+'&keyword='+this.state.search+'&type=search','GET')
             .then( res=>{
@@ -142,11 +128,16 @@ export default class City extends React.Component{
     }
     // 历史列表
     historyTitle=()=>{
-        this.state.historyTitle.push({'title':this.state.title,'subTitle':this.state.subTitle});
-        var historyTitle1 = this.state.historyTitle
+        // console.log(this.state.title)
+        this.state.sumtitle.push({"title":this.state.title,"subTitle":this.state.subTitle});
+        // console.log(this.state.sumtitle)
+        this.state.kkk = this.state.sumtitle
         this.setState({
-            sumtitle:historyTitle1
+            kkk:this.state.kkk
+        },()=>{
+            console.log("dom挂载之后执行，如vue的nextTick一样")
         })
+        
     }
     // 清除所有
     clearAll=()=>{

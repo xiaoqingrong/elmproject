@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import fetchRequest from '../../config/fetch';
 import '../../style/msiteIndex.css'
 import Header from '../../components/header/header';
@@ -6,7 +6,7 @@ import Footer from '../../components/footer/footer';
 
 import Swiper from 'swiper/js/swiper.js'
 import 'swiper/css/swiper.min.css'
-export default class MsiteIndex extends React.Component{
+export default class MsiteIndex extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -26,10 +26,13 @@ export default class MsiteIndex extends React.Component{
     render(){
         return(
             <div style={{backgroundColor:'#f2f2f2'}}>
-                <Header city={this.state.city} isSelf={this.state.isSelf} isSearch={this.state.isSearch} goBack={()=>{
-                    this.props.history.push('/'); 
-                    }}/>
+                <Header city={this.state.city} isSelf={this.state.isSelf} isSearch={this.state.isSearch} goBack1={()=>{
+                    this.props.history.go(-1); 
+                    }} Search={()=>{
+                        this.props.history.push('./search'); 
+                        }}/>
                 <div>
+                    <div><button onClick={this.addNumHandle}>222</button>{this.state.num}</div>
                     <div className="swiper-container">
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
@@ -91,24 +94,28 @@ export default class MsiteIndex extends React.Component{
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer lat={this.props.location.state.lat} log={this.props.location.state.log} goBack={()=>{
+                        this.props.history.push('./msiteIndex'); 
+                    }}/>
             </div>
         )
     }
     componentDidMount(){
+        // console.log(Store.getState())
         this.localPositin();
         this.indexEntry();
         this.resShopList();
         new Swiper ('.swiper-container', {
-            loop: true,  //循环
-            // autoplay: {   //滑动后继续播放（不写官方默认暂停）
-            //     delay:4000
-            // },
+            loop: true,
             pagination: {  //分页器
                 el: '.swiper-pagination'
             }
         })
     }
+    // addNumHandle=()=>{
+    //     Store.dispatch(actions_A[ADDNUM]())
+    //     console.log(Store.getState().A.num)
+    // }
     localPositin(){
         fetchRequest('/v2/pois/'+this.props.location.state.lat+','+this.props.location.state.log,'GET')
         .then( res=>{
@@ -150,7 +157,6 @@ export default class MsiteIndex extends React.Component{
         fetchRequest('/shopping/restaurants?latitude='+this.props.location.state.lat+'&longitude='+this.props.location.state.log,'GET')
         .then( res=>{
             //请求成功
-           console.log(res)
            this.setState({
             resShopList:res
            })
@@ -168,3 +174,5 @@ export default class MsiteIndex extends React.Component{
     return items
   }
 }
+	
+// export default connect(mapStateToProps,mapDispatchToProps)(MsiteIndex)

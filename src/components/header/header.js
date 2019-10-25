@@ -14,6 +14,9 @@ export default class Header extends React.Component{
     hdBack=()=>{ // 调用父组件方法
         this.props.goBack();
     }
+    Search=()=>{ // 调用父组件方法
+        this.props.Search();
+    }
     render(){
         return(
             <div className="hdBox">
@@ -21,7 +24,7 @@ export default class Header extends React.Component{
                     {this.state.goBack!==false?
                     <div>
                         {this.state.isSearch!==false?<span onClick={this.hdBack} style={{width:'20px'}}><i style={{fontWeight:'bold'}} className="iconfont icon-jiantou3"></i></span>
-                        :<span onClick={this.hdBack} style={{width:'20px'}}><i className="iconfont icon-sousuo"></i></span>}
+                        :<span onClick={this.Search} style={{width:'20px'}}><i className="iconfont icon-sousuo"></i></span>}
                     </div>
                     :
                     <span>elm</span>}
