@@ -1,4 +1,8 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
+import {setName} from "../../redux/action/userAactions"
+import store from "../../redux/store";
+
 import fetchRequest from '../../config/fetch';
 import '../../style/msiteIndex.css'
 import Header from '../../components/header/header';
@@ -6,7 +10,8 @@ import Footer from '../../components/footer/footer';
 
 import Swiper from 'swiper/js/swiper.js'
 import 'swiper/css/swiper.min.css'
-export default class MsiteIndex extends Component{
+// import { connect } from 'tls';
+class MsiteIndex extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -32,7 +37,6 @@ export default class MsiteIndex extends Component{
                         this.props.history.push('./search'); 
                         }}/>
                 <div>
-                    <div><button onClick={this.addNumHandle}>222</button>{this.state.num}</div>
                     <div className="swiper-container">
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
@@ -94,14 +98,12 @@ export default class MsiteIndex extends Component{
                         </div>
                     </div>
                 </div>
-                <Footer lat={this.props.location.state.lat} log={this.props.location.state.log} goBack={()=>{
-                        this.props.history.push('./msiteIndex'); 
-                    }}/>
+                <Footer/>
             </div>
         )
     }
     componentDidMount(){
-        // console.log(Store.getState())
+        console.log(store.getState())
         this.localPositin();
         this.indexEntry();
         this.resShopList();
@@ -112,12 +114,8 @@ export default class MsiteIndex extends Component{
             }
         })
     }
-    // addNumHandle=()=>{
-    //     Store.dispatch(actions_A[ADDNUM]())
-    //     console.log(Store.getState().A.num)
-    // }
     localPositin(){
-        fetchRequest('/v2/pois/'+this.props.location.state.lat+','+this.props.location.state.log,'GET')
+        fetchRequest('/v2/pois/'+localStorage.getItem("lat")+','+localStorage.getItem("log"),'GET')
         .then( res=>{
             //请求成功
            this.setState({
@@ -154,7 +152,7 @@ export default class MsiteIndex extends Component{
         })
     }
     resShopList(){
-        fetchRequest('/shopping/restaurants?latitude='+this.props.location.state.lat+'&longitude='+this.props.location.state.log,'GET')
+        fetchRequest('/shopping/restaurants?latitude='+localStorage.getItem("lat")+'&longitude='+localStorage.getItem("log"),'GET')
         .then( res=>{
             //请求成功
            this.setState({
@@ -175,4 +173,18 @@ export default class MsiteIndex extends Component{
   }
 }
 	
-// export default connect(mapStateToProps,mapDispatchToProps)(MsiteIndex)
+const mapStateToProps = (state)=>{
+    return{
+        user:state.user,
+        math:state.math
+    }
+}
+	
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        sertName:(name)=>{
+            dispatch(setName(name))
+        }
+    }
+};
+export default connect(mapStateToProps,mapDispatchToProps)(MsiteIndex);

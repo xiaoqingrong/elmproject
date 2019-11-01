@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Button } from 'antd';
 
 import Header from '../../components/header/header';
-
+import store from "../../redux/store";
 import fetchRequest from '../../config/fetch';
 export default class City extends Component{
     constructor(props){
@@ -65,7 +65,7 @@ export default class City extends Component{
                                    <ul key={index} onClick={()=>{
                                        this.state.title = this.state.historyList[index].name;
                                        this.state.subTitle = this.state.historyList[index].address;
-                                        this.historyTitle();
+                                        this.historyTitle(index);
                                        this.props.history.push({
                                            pathname:'./msiteIndex',state:{lat:this.state.historyList[index].latitude,log:this.state.historyList[index].longitude}}
                                        )}
@@ -127,8 +127,18 @@ export default class City extends Component{
         }
     }
     // 历史列表
-    historyTitle=()=>{
-        // console.log(this.state.title)
+    historyTitle=(i)=>{
+        console.log(i)
+        localStorage.setItem("log",this.state.historyList[i].longitude)
+        localStorage.setItem("lat",this.state.historyList[i].latitude)
+        // store.dispatch({
+        //     type:"SET_LOG",
+        //     log:this.state.historyList[i].longitude
+        // });
+        // store.dispatch({
+        //     type:"SET_LAT",
+        //     lat:this.state.historyList[i].latitude
+        // });
         this.state.sumtitle.push({"title":this.state.title,"subTitle":this.state.subTitle});
         // console.log(this.state.sumtitle)
         this.state.kkk = this.state.sumtitle
