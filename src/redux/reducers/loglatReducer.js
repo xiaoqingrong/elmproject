@@ -1,15 +1,15 @@
-const loglatReducer = (state={
-    log:"",
-    lat:""
+const urlReducer = (state={
+     imgUrl:'https://elm.cangdu.org/img/',
+     basicUrl:"https://fuss10.elemecdn.com",
 },action)=>{
     switch (action.type){
-        case "SET_LOG":
+        case "IMG_URL":
             state = {
                 ...state,
                 log:action.log
             };
             break;
-        case "SET_LAT":
+        case "BASIC_URL":
                 state = {
                     ...state,
                     lat:action.lat
@@ -18,4 +18,4 @@ const loglatReducer = (state={
     }
     return state;
 };
-export default loglatReducer;
+export default urlReducer;

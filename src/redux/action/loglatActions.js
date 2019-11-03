@@ -1,12 +1,12 @@
-export function setLog(log){
+export function img_url(log){
     return{
-        type:"SET_LOG",
+        type:"IMG_URL",
         payload:log
     }
 }
-export function setLat(lat){
+export function basec_url(lat){
     return{
-        type:"SET_LAT",
+        type:"BASIC_URL",
         payload:lat
     }
 }

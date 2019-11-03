@@ -21,11 +21,9 @@ class MsiteIndex extends Component{
             city:'',        //头部中间的文字
             bannerKey:[],
             banenrList:[],
-            basicUrl:"https://fuss10.elemecdn.com",
             foodArrL:[],
             foodArrH:[],
-            resShopList:[],
-            imgUrl:'https://elm.cangdu.org/img/'
+            resShopList:[]
         }
     }
     render(){
@@ -42,8 +40,8 @@ class MsiteIndex extends Component{
                             <div className="swiper-slide">
                                 <ul>
                                 {this.state.foodArrL.map((item,index)=>(
-                                    <li key={index}>
-                                        <img src={this.state.basicUrl+item.image_url} alt=""/>
+                                    <li key={index} onClick={this.props.history.push('./food') }>
+                                        <img src={store.getState().url.basicUrl+item.image_url} alt=""/>
                                         <p>{item.title}</p>
                                     </li>
                                 ))
@@ -54,7 +52,7 @@ class MsiteIndex extends Component{
                                 <ul>
                                     {this.state.foodArrH.map((item,index)=>(
                                         <li key={index}>
-                                            <img src={this.state.basicUrl+item.image_url} alt=""/>
+                                            <img src={store.getState().url.basicUrl+item.image_url} alt=""/>
                                             <p>{item.title}</p>
                                         </li>
                                     ))
@@ -78,7 +76,7 @@ class MsiteIndex extends Component{
                             {this.state.resShopList.map((item,index)=>(
                                 <div key={index} className="listCon">
                                     <div>
-                                        <img src={this.state.imgUrl+item.image_path} alt=""/>
+                                        <img src={store.getState().url.imgUrl+item.image_path} alt=""/>
                                     </div>
                                     <div className="list_center">
                                         <p><span>品牌</span>{item.name}</p>
@@ -103,7 +101,7 @@ class MsiteIndex extends Component{
         )
     }
     componentDidMount(){
-        console.log(store.getState())
+        // console.log(store.getState())
         this.localPositin();
         this.indexEntry();
         this.resShopList();
@@ -141,6 +139,7 @@ class MsiteIndex extends Component{
             for (let i = 0, j = 0; i < resLength; i += 8, j++) {
                 foodArr[j] = res.splice(0, 8);
               }
+            console.log(foodArr[0])
             this.setState({
                 bannerKey:arr,
                 foodArrL:foodArr[0],
