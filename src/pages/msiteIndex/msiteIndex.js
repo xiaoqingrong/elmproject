@@ -40,7 +40,7 @@ class MsiteIndex extends Component{
                             <div className="swiper-slide">
                                 <ul>
                                 {this.state.foodArrL.map((item,index)=>(
-                                    <li key={index} onClick={this.props.history.push('./food') }>
+                                    <li key={index}>
                                         <img src={store.getState().url.basicUrl+item.image_url} alt=""/>
                                         <p>{item.title}</p>
                                     </li>
