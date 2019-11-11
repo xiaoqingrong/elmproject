@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.hdList{
+    border: 1px solid #ccc;
+}
+.hdList ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+.hdList li{
+    height: 40px;
+    line-height: 40px;
+}
+
+.hdSlid{
+    width: 100%;
+}
+.hdSlid ul{
+    width: 100%;
+}
+.hdSlid li{
+}
+.hdSlid li{
+    display: flex;
+    margin: 0;
+}
+.hdSlid li i{
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+.hdSlid li p{
+    flex: 11;
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+}

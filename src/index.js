@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import '../src/assets/iconfont/iconfont.css'
-
+import '../src/assets/iconfont/elmfood.css'
 
 import { Provider } from 'react-redux'; 
 import RouteConfig from './router/index'
