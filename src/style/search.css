@@ -32,9 +32,6 @@
     padding: 10px;
     background-color: #cccccc;
 }
-.merchList{
-
-}
 .merchList li{
     border-bottom: 1px solid #ccc;
     display: flex;

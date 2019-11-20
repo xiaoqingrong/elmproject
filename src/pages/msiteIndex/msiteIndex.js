@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import {setName} from "../../redux/action/userAactions"
+import {listId} from "../../redux/action/shopListAction"
 import store from "../../redux/store";
 
 import fetchRequest from '../../config/fetch';
 import '../../style/msiteIndex.css'
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+import ShopList from '../shopList/shopList';
 
 import Swiper from 'swiper/js/swiper.js'
 import 'swiper/css/swiper.min.css'
@@ -72,11 +73,12 @@ class MsiteIndex extends Component{
                         {/* <!-- 如果需要滚动条 --> */}
                         {/* <div className="swiper-scrollbar"></div> */}
                     </div>
+                    <button>{this.props.id.id}</button>
                     <div className="nearShops">
                         <h5>附近商家</h5>
                         <div>
                             {this.state.resShopList.map((item,index)=>(
-                                <div key={index} className="listCon">
+                                <div key={index} className="listCon" onClick={()=>this.toMenu(index)}>
                                     <div>
                                         <img src={store.getState().url.imgUrl+item.image_path} alt=""/>
                                     </div>
@@ -103,7 +105,6 @@ class MsiteIndex extends Component{
         )
     }
     componentDidMount(){
-        // console.log(store.getState())
         this.localPositin();
         this.indexEntry();
         this.resShopList();
@@ -141,7 +142,6 @@ class MsiteIndex extends Component{
             for (let i = 0, j = 0; i < resLength; i += 8, j++) {
                 foodArr[j] = res.splice(0, 8);
               }
-            console.log(foodArr[0])
             this.setState({
                 bannerKey:arr,
                 foodArrL:foodArr[0],
@@ -164,6 +164,19 @@ class MsiteIndex extends Component{
             //请求失败
         })
     }
+    // 附近商家跳转
+    toMenu(i){
+        console.log(i)
+        fetchRequest('/shopping/restaurants?latitude='+localStorage.getItem("lat")+'&longitude='+localStorage.getItem("log"),'GET')
+        .then( res=>{
+            //请求成功
+            this.props.mainindex(res[i].id)
+            this.props.history.push('./ShopList');
+        }).catch( err=>{ 
+            console.log("请求失败")
+            //请求失败
+        })
+    }
     // 评价星星
   starCount = (rating) => {
     var items = []
@@ -176,15 +189,14 @@ class MsiteIndex extends Component{
 	
 const mapStateToProps = (state)=>{
     return{
-        user:state.user,
-        math:state.math
+        id:state.id
     }
 }
 	
 const mapDispatchToProps = (dispatch)=>{
     return{
-        sertName:(name)=>{
-            dispatch(setName(name))
+        mainindex:(name)=>{
+            dispatch(listId(name))
         }
     }
 };

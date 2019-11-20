@@ -17,6 +17,7 @@ const mathReducer = (state={
                     lastValues:[...state.lastValues,action.payload]
                 };
                 break;
+            default:return null;
     }
     return state;
 };

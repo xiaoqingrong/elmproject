@@ -5,12 +5,14 @@ import createPromise from "redux-promise-middleware"
 
 import math from "./reducers/mathReducer";
 import user from "./reducers/userReducer";
-import url from "./reducers/loglatReducer";
+import url from "./reducers/urlReducer";
+import id from "./reducers/shopListReducer";
 export default createStore(
     combineReducers({
         math,
         user,
-        url
+        url,
+        id
     }),
     {},
     //  applyMiddleware(myLogger)  // 打印哪一个action及内容

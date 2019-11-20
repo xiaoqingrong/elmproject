@@ -15,6 +15,7 @@ const urlReducer = (state={
                     lat:action.lat
                 };
                 break;
+        // default:return null;
     }
     return state;
 };

@@ -2,8 +2,37 @@
     padding: 0;
     margin: 0;
 }
+.hdBox{
+    position: fixed;
+    width: 100%;
+    z-index: 200!important;
+}
+.backColor{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 4;
+    background-color: rgba(204, 204, 204, 0.5);
+}
+#backColor1{
+    display: none;
+
+}
+.foodCon{
+    position: fixed;
+    top: 40px;
+    height: 40px;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 20;
+}
 .hdList{
+    position: fixed;
+    width: 100%;
     border: 1px solid #ccc;
+    background-color: #ffffff;
+    z-index: 20;
 }
 .hdList ul{
     display: flex;
@@ -16,12 +45,19 @@
 }
 
 .hdSlid{
+    position: absolute;
+    top: -274px;
     width: 100%;
+    transition: 0.4s;
+    background-color: #ffffff;
+    z-index: 5; 
+}
+#hdSlidShow{
+    transition: 0.4s;
+    top: 42px;
 }
 .hdSlid ul{
     width: 100%;
-}
-.hdSlid li{
 }
 .hdSlid li{
     display: flex;
@@ -32,10 +68,83 @@
     text-align: center;
     line-height: 50px;
 }
+.hdSlid li:nth-child(2n) i{
+    color: red
+}
+.hdSlid li:nth-child(2n+1) i{
+    color: blue
+}
 .hdSlid li p{
     flex: 11;
     margin: 0;
     height: 50px;
     line-height: 50px;
     border-bottom: 1px solid #ccc;
+}
+.hdSlid li:last-child p{
+    border: none;
+}
+
+h1{
+    margin-bottom: 100px;
+}
+.List{
+    padding-top: 80px;
+}
+.listCon{
+    display: flex;
+    padding:10px 0;
+    z-index: -1;
+    border-bottom: 1px solid #ccc;
+}
+.listCon img{
+    width: 100%;
+    height: 100%;
+}
+.listCon>div{
+    padding: 4px;
+}
+.listCon>div:nth-child(1){
+    width: 20%;
+}
+.listCon>div:nth-child(2){
+    width: 50%;
+}
+.listCon>div:nth-child(3){
+    width: 30%;
+    text-align: right;
+}
+.list_center{
+    font-size: 12px;
+}
+.list_center p{
+    width: 80%;
+    height: 20px;
+    overflow:hidden;
+    margin: 0;
+}
+.list_center p span{
+    background-color: orange;
+    border-radius: 4px;
+    padding: 2px;
+    
+}
+.list_right p{
+    text-align: right;
+    margin-bottom: 4px;
+}
+.list_right button{
+    background-color: #f5f5f5;
+    margin: 0 4px;
+    font-size: 10px;
+}
+.list_right span{
+    font-size: 10px;
+}
+
+.list_right span:nth-child(3){
+    background-color: #ffffff;
+    color: #158ced;
+    border: 1px solid #158ced;
+    margin-left: 2px;
 }

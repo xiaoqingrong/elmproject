@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Button } from 'antd';
 
 import Header from '../../components/header/header';
-import store from "../../redux/store";
+// import store from "../../redux/store";
 import fetchRequest from '../../config/fetch';
 export default class City extends Component{
     constructor(props){
@@ -63,9 +63,13 @@ export default class City extends Component{
                             <li key={index} style={{padding:'10px 20px',borderBottom:'1px solid #ccc'}}>
                                 {
                                    <ul key={index} onClick={()=>{
-                                       this.state.title = this.state.historyList[index].name;
-                                       this.state.subTitle = this.state.historyList[index].address;
-                                        this.historyTitle(index);
+                                       this.setState({
+                                           title:this.state.historyList[index].name,
+                                           subTitle:this.state.historyList[index].address
+                                       })
+                                    //    this.state.title = this.state.historyList[index].name;
+                                    //    this.state.subTitle = this.state.historyList[index].address;
+                                        this.historyTitle(index); 
                                        this.props.history.push({
                                            pathname:'./msiteIndex',state:{lat:this.state.historyList[index].latitude,log:this.state.historyList[index].longitude}}
                                        )}
@@ -131,17 +135,11 @@ export default class City extends Component{
         console.log(i)
         localStorage.setItem("log",this.state.historyList[i].longitude)
         localStorage.setItem("lat",this.state.historyList[i].latitude)
-        // store.dispatch({
-        //     type:"SET_LOG",
-        //     log:this.state.historyList[i].longitude
-        // });
-        // store.dispatch({
-        //     type:"SET_LAT",
-        //     lat:this.state.historyList[i].latitude
-        // });
         this.state.sumtitle.push({"title":this.state.title,"subTitle":this.state.subTitle});
-        // console.log(this.state.sumtitle)
-        this.state.kkk = this.state.sumtitle
+        // this.state.kkk = this.state.sumtitle
+         this.setState({
+            kkk:this.state.sumtitle
+        }) 
         this.setState({
             kkk:this.state.kkk
         },()=>{
@@ -152,7 +150,6 @@ export default class City extends Component{
     // 清除所有
     clearAll=()=>{
         if(this.state.historyList!==""){
-            this.state.isClear="";
             this.setState({
                 isClear:""
             })

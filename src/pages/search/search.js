@@ -29,13 +29,14 @@ export default class Search extends Component{
                     <div onClick={this.submitSearch}>提交</div>
                 </form>
                 <section>
-                    {this.state.isShow==""?
+                    {this.state.isShow===""?
                         <div>
                             <p className="merchants">商家</p>
                             <ul className="merchList">
                                 {this.state.searchList.map((item,index)=>(
                                     <li key={index}>
                                         <div>
+                                            {console.log(store.getState().url.imgUrl+item.image_path)}
                                             <img src={store.getState().url.imgUrl+item.image_path} alt=""/>
                                         </div>
                                         <div>
@@ -63,7 +64,6 @@ export default class Search extends Component{
         })
     }
     searchList=(e)=>{
-        console.log(e.target.value)
         this.setState({
             searchWord:e.target.value
         })
