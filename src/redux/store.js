@@ -7,12 +7,14 @@ import math from "./reducers/mathReducer";
 import user from "./reducers/userReducer";
 import url from "./reducers/urlReducer";
 import id from "./reducers/shopListReducer";
+import leftIcon from './reducers/hdLeftReducer';
 export default createStore(
     combineReducers({
         math,
         user,
         url,
-        id
+        id,
+        leftIcon
     }),
     {},
     //  applyMiddleware(myLogger)  // 打印哪一个action及内容

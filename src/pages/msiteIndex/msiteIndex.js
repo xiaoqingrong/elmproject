@@ -7,7 +7,7 @@ import fetchRequest from '../../config/fetch';
 import '../../style/msiteIndex.css'
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import ShopList from '../shopList/shopList';
+// import ShopList from '../shopList/shopList';
 
 import Swiper from 'swiper/js/swiper.js'
 import 'swiper/css/swiper.min.css'
@@ -35,7 +35,7 @@ class MsiteIndex extends Component{
                     }} Search={()=>{
                         this.props.history.push('./search'); 
                         }}/>
-                <div>
+                <div style={{marginTop:50}}>
                     <div className="swiper-container">
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">

@@ -32,7 +32,7 @@ export default class City extends Component{
                     goBack={()=>{
                         this.props.history.go(-1); 
                     }}/>
-                <div style={{backgroundColor:'#ffffff',textAlign:'center',padding:'3px',borderTop:'1px solid #ccc',borderBottom:'1px solid #ccc',marginTop:'10px'}}>
+                <div style={{backgroundColor:'#ffffff',textAlign:'center',padding:'3px',borderTop:'1px solid #ccc',borderBottom:'1px solid #ccc',marginTop:'50px'}}>
                     <div>
                         <input onChange={this.inpChange} value={this.state.search} type="text" style={{width:'90%',height:'30px',margin:'10px 0',outline:'none',borderStyle:'none',border:'1px solid #ccc',padding:'0 4px'}} placeholder="输入学校、商务楼、地址"/>
                     </div>

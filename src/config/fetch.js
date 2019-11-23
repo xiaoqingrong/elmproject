@@ -21,7 +21,7 @@
 				fetch(common_url + url, {
 					method: method,
 					headers: header
-				}).then((response) => response.json())
+				}).then((response) => response.json()) 
 					.then((responseData) => {
 						resolve(responseData);
 					})
