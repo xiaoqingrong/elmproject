@@ -45,4 +45,5 @@ npm start
 ### `个人总结`
 （1）组件：建议把每个页面分成多个组件来组成，复用性高一点，页面干净利落一点。
 （2）性能：减少组件render次数，可以使用生命周期钩子 shouldComponentUpdate(prevProps, prevState)来返回一个布尔值，当返回值为 true 时才会触发 render。
-（3）redux:action、reducer、store三个文件
+（3）redux:action、reducer、store三个文件，使用combineReducers，applyMiddleware等来实现更多操作。
+（4）数据获取封装:数据请求封装要
