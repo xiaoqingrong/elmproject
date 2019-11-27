@@ -3,7 +3,6 @@ import 'antd/dist/antd.css';
 import { Button } from 'antd';
 
 import Header from '../../components/header/header';
-// import store from "../../redux/store";
 import fetchRequest from '../../config/fetch';
 export default class City extends Component{
     constructor(props){
@@ -27,12 +26,12 @@ export default class City extends Component{
         return(
             <div style={{backgroundColor:'#f2f2f2'}}>
                 <Header 
-                    isLogin={this.state.isLogin} 
-                    city={this.state.hdTitle} 
                     goBack={()=>{
                         this.props.history.go(-1); 
+                        window.localStorage.setItem('left',0);
+                        window.localStorage.setItem('right',0);
                     }}/>
-                <div style={{backgroundColor:'#ffffff',textAlign:'center',padding:'3px',borderTop:'1px solid #ccc',borderBottom:'1px solid #ccc',marginTop:'50px'}}>
+                <div style={{backgroundColor:'#ffffff',textAlign:'center',padding:'3px',borderTop:'1px solid #ccc',borderBottom:'1px solid #ccc',paddingTop:'50px'}}>
                     <div>
                         <input onChange={this.inpChange} value={this.state.search} type="text" style={{width:'90%',height:'30px',margin:'10px 0',outline:'none',borderStyle:'none',border:'1px solid #ccc',padding:'0 4px'}} placeholder="输入学校、商务楼、地址"/>
                     </div>
@@ -67,8 +66,6 @@ export default class City extends Component{
                                            title:this.state.historyList[index].name,
                                            subTitle:this.state.historyList[index].address
                                        })
-                                    //    this.state.title = this.state.historyList[index].name;
-                                    //    this.state.subTitle = this.state.historyList[index].address;
                                         this.historyTitle(index); 
                                        this.props.history.push({
                                            pathname:'./msiteIndex',state:{lat:this.state.historyList[index].latitude,log:this.state.historyList[index].longitude}}
@@ -94,6 +91,8 @@ export default class City extends Component{
         this.setState({
             hdTitle:this.props.location.state.city
         });
+        window.localStorage.setItem('left',1)
+        window.localStorage.setItem('right',1)
     }
     // 地址信息输入框
     inpChange=(e)=>{
@@ -135,6 +134,8 @@ export default class City extends Component{
         console.log(i)
         localStorage.setItem("log",this.state.historyList[i].longitude)
         localStorage.setItem("lat",this.state.historyList[i].latitude)
+        window.localStorage.setItem('left',2);
+        window.localStorage.setItem('right',0);
         this.state.sumtitle.push({"title":this.state.title,"subTitle":this.state.subTitle});
         // this.state.kkk = this.state.sumtitle
          this.setState({

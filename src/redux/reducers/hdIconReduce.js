@@ -1,8 +1,8 @@
-const shopListReducer = (state={
-    id:'1'
+const hdIconReduce = (state={
+    id:'0'
 },action)=>{
    switch (action.type){
-       case "LIST_ID":
+       case "HDICON":
            state = {
                ...state,
                id:action.payload
@@ -11,4 +11,4 @@ const shopListReducer = (state={
    }
    return state;
 };
-export default shopListReducer;
+export default hdIconReduce;

@@ -24,7 +24,7 @@ export default class Search extends Component{
                     goBack={()=>{
                         this.props.history.go(-1); 
                     }}/>
-                <form className="searchInp">
+                <form className="searchInp" style={{paddingTop:70}}>
                     <input onChange={this.searchList} type="text" placeholder="请输入商家或美食名称"/>
                     <div onClick={this.submitSearch}>提交</div>
                 </form>

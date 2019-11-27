@@ -1,33 +1,40 @@
 import React from 'react';
 import '../../style/header.css';
-import {changeIcon} from '../../redux/action/hdLeftAction'
-import store from '../../redux/store'
-import { connect } from 'react-redux';
-class Header extends React.Component{
+import store from "../../redux/store"
+export default class Header extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            goBack:true,
-            isLogin:'登录|注册',
-            icon:0
+            left:'45450',
+            right:'4545'
         }
+    }
+    hdBack=()=>{ // 调用父组件方法
+        this.props.goBack();
+    }
+    goMy=()=>{
+        this.props.goMy();
+    }
+    Search=()=>{ // 调用父组件方法
+        this.props.Search();
+    }
+    backMindex=()=>{
+        this.props.backMindex();
     }
     render(){
         return(
             <div className="hdBox">
-                <div style={{border:'1px solid red',textAlign:'left',paddingLeft:'10px',fontSize:'20px'}}>
-                    
-                    {
-                        
-                        this.state.icon===0?<span>elm</span>:''
+                <div style={{textAlign:'left',paddingLeft:'10px',fontSize:'20px'}}>
+                    {this.state.left==='0'?<span>elm</span>:''}
+                    {this.state.left==='1'?
+                        <div>
+                        <span onClick={store.getState().Icon.id===0?this.backMindex:this.backMain} style={{width:'20px'}}><i style={{fontWeight:'bold'}} className="iconfont icon-jiantou3"></i></span>
+                        </div>:''
                     }
-                    {
-                        this.state.icon===1?
-                        <span onClick={this.hdBack} style={{width:'20px'}}><i style={{fontWeight:'bold'}} className="iconfont icon-jiantou3"></i></span>:''
-                    }
-                    {
-                        this.state.icon===2?
-                        <span onClick={this.Search} style={{width:'20px'}}><i className="iconfont icon-sousuo"></i></span>:''
+                    {this.state.left==='2'?
+                        <div>
+                        <span onClick={this.Search} style={{width:'20px'}}><i className="iconfont icon-sousuo"></i></span>
+                        </div>:''
                     }
                 </div>
                 <div className="headTitle">
@@ -35,57 +42,43 @@ class Header extends React.Component{
                 </div>
                 <div>
                     {
-                        this.state.icon===0?<span>登录|注册</span>:''
+                    this.state.right==='0'?
+                        <div style={{textAlign:'right',paddingRight:'6px'}}>
+                            <span onClick={this.goMy}><i className="iconfont icon-self" style={{fontWeight:'bold'}}></i></span>
+                        </div>:''
+                    }
+                    {this.state.right==='1'?
+                        <div style={{textAlign:'right',paddingRight:'6px'}}>
+                        <span onClick={this.hdBack}>切换城市</span>
+                        </div>:''
                     }
                     {
-                        this.state.icon===1?
-                        <span onClick={this.hdBack}>切换城市</span>:''
-                    }
-                    {
-                        this.state.icon===2?
-                        <span onClick={this.hdBack}><i className="iconfont icon-self" style={{fontWeight:'bold'}}></i></span>:''
+                        this.state.right==='2'?<span>登录注册</span>:''
                     }
                 </div>
             </div>
         )
     }
-    componentWillMount(){
-        this.headIcon();
-    }
     componentDidMount(){
-        this.isisSelf();
-       
+        this.changeLog();
+        
     }
-    
-    headIcon(){
-        console.log( this.state.icon)
+    // 当页面跳转到首页把logo显示出来
+    showLogo=()=>{
         this.setState({
-            icon:store.getState().leftIcon.icon
+            goBack:false
         })
     }
-    isisSelf=()=>{
-        if(this.props.isSelf===false){
-            this.setState({
-                isSelf:true
-            })
-        }else{
-            this.setState({
-                isSelf:false
-            })
-        }
+    
+    changeLog(){
+        let l = localStorage.getItem('left')
+        let r = localStorage.getItem('right')
+        this.setState({
+            left:l,
+            right:r
+        })
+        // if(store.getState().Icon.id==1){
+            
+        // }
     }
 }
-const mapStateToProps = (state)=>{
-    return{
-        id:state.id
-    }
-}
-	
-const mapDispatchToProps = (dispatch)=>{
-    return{
-        mainindex:(name)=>{
-            dispatch(changeIcon(name))
-        }
-    }
-};
-export default connect(mapStateToProps,mapDispatchToProps)(Header)

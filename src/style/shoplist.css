@@ -1,0 +1,128 @@
+
+.ShopList .shopHd{
+    position: fixed;
+    /* top: 30px; */
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    color: #ffffff;
+    z-index: 222;
+    background-color: #cccccc;
+}
+.shopList{
+    padding-top: 154px;
+}
+.shopHd>p{
+    
+    font-weight: bold;
+}
+.shopHd>p>i{
+    font-size: 30px;
+}
+.shopList h2{
+    overflow: hidden;    
+    text-overflow:ellipsis;    
+    white-space: nowrap;
+}
+.shopHd img{
+    width: 100px;
+    margin-right: 20px;
+}
+.shopHd h1{
+    color: #ffffff;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.ShopList .listCon{
+    display: flex;
+}
+.ShopList .listCon>img{
+    width: 90px;
+}
+.ShopList .listCon>div:nth-child(2){
+    padding-left: 20px;
+}
+.moneyAction{
+    color: red;
+    font-size: 20px;
+    font-weight: 700;
+}
+.ShopList .listCon>div:nth-child(3){
+    position: relative;
+}
+.ShopList .listCon>div:nth-child(3) p{
+    transition: 0.5s;
+    top: 0;
+    position: absolute;
+    left: 55%;
+    width:40px;
+    height:40px;
+    margin-left: 10px;
+    margin-top: 50px;
+    border-radius: 100%;
+    z-index: 100;
+    background-color: rgb(29, 159, 235);
+    text-align: center;
+ }
+ .ShopList .listCon>div:nth-child(3) p:nth-child(1){
+    left: 55%;
+    background-color: rgb(151, 200, 228);
+}
+.ShopList .listCon>div:nth-child(3) p:nth-child(3){
+    left: 55%;
+    z-index: 60;
+    background-color: rgb(29, 159, 235);
+}
+
+.ShopList .listCon>div:nth-child(3) span{
+     font-size: 24px;
+     font-weight: bold;
+     color: #ffffff;
+ }
+
+ /* 尾部 */
+ .foot{
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     height: 70px;
+     color: #ffffff;
+     z-index: 300;
+     background-color: gray;
+     display: flex;
+ }
+ .carCicle{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+     width: 60px;
+     height: 60px;
+     line-height: 60px;
+     border-radius: 100%;
+     text-align: center;
+     background-color: #000;
+     border: 3px solid #cccccc;
+ }
+ .carCicle i{
+     
+     font-size: 40px;
+     color: #ffffff;
+ }
+ .foot>div{
+     flex: 2;
+ }
+ .foot>div:nth-child(1){
+    flex: 1;
+ }
+ .foot h2{
+     font-weight: 700;
+     color: #ffffff;
+ }
+ .foot>div:nth-child(3){
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    /* background-color: aquamarine; */
+     color: #ffffff;
+    line-height: 70px;
+ }

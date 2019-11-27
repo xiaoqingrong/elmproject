@@ -1,17 +1,15 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import {listId} from "../../redux/action/shopListAction"
+import {hdIcon} from '../../redux/action/hdIconAction'
 import store from "../../redux/store";
 
 import fetchRequest from '../../config/fetch';
 import '../../style/msiteIndex.css'
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-// import ShopList from '../shopList/shopList';
 
 import Swiper from 'swiper/js/swiper.js'
 import 'swiper/css/swiper.min.css'
-// import { connect } from 'tls';
 class MsiteIndex extends Component{
     constructor(props){
         super(props)
@@ -32,11 +30,20 @@ class MsiteIndex extends Component{
             <div style={{backgroundColor:'#f2f2f2'}}>
                 <Header city={this.state.city} isSelf={this.state.isSelf} isSearch={this.state.isSearch} goBack1={()=>{
                     this.props.history.go(-1); 
-                    }} Search={()=>{
+                    }} 
+                    Search={()=>{
                         this.props.history.push('./search'); 
-                        }}/>
-                <div style={{marginTop:50}}>
-                    <div className="swiper-container">
+                    }}
+                    goMy={()=>{
+                        this.props.mainindex(0)
+                        this.props.history.push({pathname:"./self"}); 
+                        window.localStorage.setItem('left',1);
+                        window.localStorage.setItem('right',3);
+                        }
+                    }/>
+                    
+                <div>
+                    <div className="swiper-container" style={{paddingTop:40}}>
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
                                 <ul>
@@ -73,12 +80,16 @@ class MsiteIndex extends Component{
                         {/* <!-- 如果需要滚动条 --> */}
                         {/* <div className="swiper-scrollbar"></div> */}
                     </div>
-                    <button>{this.props.id.id}</button>
                     <div className="nearShops">
                         <h5>附近商家</h5>
                         <div>
                             {this.state.resShopList.map((item,index)=>(
-                                <div key={index} className="listCon" onClick={()=>this.toMenu(index)}>
+                                <div key={index} className="listCon" onClick={()=>
+                                {
+                                    this.toMenu(index)
+                                this.props.history.push({pathname:'./ShopList',state:{i:index,img:this.state.resShopList[index]}});
+                                }
+                                }>
                                     <div>
                                         <img src={store.getState().url.imgUrl+item.image_path} alt=""/>
                                     </div>
@@ -156,6 +167,7 @@ class MsiteIndex extends Component{
         fetchRequest('/shopping/restaurants?latitude='+localStorage.getItem("lat")+'&longitude='+localStorage.getItem("log"),'GET')
         .then( res=>{
             //请求成功
+            console.log(res)
            this.setState({
             resShopList:res
            })
@@ -166,14 +178,16 @@ class MsiteIndex extends Component{
     }
     // 附近商家跳转
     toMenu(i){
-        console.log(i)
         fetchRequest('/shopping/restaurants?latitude='+localStorage.getItem("lat")+'&longitude='+localStorage.getItem("log"),'GET')
         .then( res=>{
             //请求成功
-            this.props.mainindex(res[i].id)
-            this.props.history.push('./ShopList');
+            console.log(res[i].id)
+            // console.log(this.state.resShopList[res[i].id-1])
+            // console.log(this.state.resShopList[res[i].id].image_path)
+            
         }).catch( err=>{ 
             console.log("请求失败")
+            
             //请求失败
         })
     }
@@ -196,7 +210,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
     return{
         mainindex:(name)=>{
-            dispatch(listId(name))
+            dispatch(hdIcon(name))
         }
     }
 };

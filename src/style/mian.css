@@ -3,8 +3,6 @@
 }
 /* 当前城市定位开始 */
 .localCity {
-    margin-top: 40px;
-    overflow: hidden;
     background-color:#ffffff;
 }
 .localCity div{
