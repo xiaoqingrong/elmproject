@@ -28,3 +28,12 @@ npm start
 推荐一个 vue2 + vuex 构建的 45 个页面的大型开源项目。[地址在这里](https://github.com/bailicangdu/vue2-elm)
 
 另外一个 vue2 + vuex 的简单项目，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
+
+
+### `部分截图`
+![city](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/city.png)
+![food](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/food.png)
+![list](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/list.png)
+![main](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/main.png)
+![mainindex](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/mainindex.png)
+![serch](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/search.png)
