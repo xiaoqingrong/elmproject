@@ -102,8 +102,6 @@ class Food extends Component{
                         </div>
                         
                     ))}
-                    <button onClick={this.props.id}>11111</button>
-                <h1>{this.props.v.user.name}</h1>
                 </div>                              
                 <Footer goBack4={()=>{
                     this.props.history.push('./food');

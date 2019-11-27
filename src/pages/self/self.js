@@ -13,6 +13,13 @@ export default class Self extends Component{
         return(
             <div>
                 <Header
+                Search={()=>{
+                        this.props.history.push({pathname:"./search"}); 
+                    }}
+                    goMy={()=>{
+                        this.props.history.push('./msiteIndex'); 
+                        // this.props.history.push({pathname:"./msiteIndex"}); 
+                    }}
                  goBack={()=>{
                     this.props.history.go(-1); 
                     }} 
@@ -28,7 +35,9 @@ export default class Self extends Component{
                     }
                 }
                 />
+                <div style={{paddingTop:40}}>
                 Self
+                </div>
                 <Footer goBack4={()=>{
                         this.props.history.push('./self'); 
                     }}/>

@@ -19,6 +19,13 @@ export default class Search extends Component{
         return(
             <div>
                 <Header 
+                Search={()=>{
+                    this.props.history.push({pathname:"./search"}); 
+                }}
+                goMy={()=>{
+                    this.props.history.push('./msiteIndex'); 
+                    // this.props.history.push({pathname:"./msiteIndex"}); 
+                }}
                     isLogin={this.state.isLogin} 
                     city="搜索" 
                     goBack={()=>{

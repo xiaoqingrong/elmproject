@@ -18,6 +18,9 @@ export default class Header extends React.Component{
     Search=()=>{ // 调用父组件方法
         this.props.Search();
     }
+    backMain=()=>{
+        this.props.backMain()
+    }
     backMindex=()=>{
         this.props.backMindex();
     }
@@ -63,6 +66,7 @@ export default class Header extends React.Component{
         this.changeLog();
         
     }
+    
     // 当页面跳转到首页把logo显示出来
     showLogo=()=>{
         this.setState({

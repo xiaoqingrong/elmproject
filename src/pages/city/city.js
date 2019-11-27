@@ -26,6 +26,9 @@ export default class City extends Component{
         return(
             <div style={{backgroundColor:'#f2f2f2'}}>
                 <Header 
+                backMain={()=>{
+                    this.props.history.push("/");
+                }}
                     goBack={()=>{
                         this.props.history.go(-1); 
                         window.localStorage.setItem('left',0);

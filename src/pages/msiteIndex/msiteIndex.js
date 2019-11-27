@@ -167,7 +167,6 @@ class MsiteIndex extends Component{
         fetchRequest('/shopping/restaurants?latitude='+localStorage.getItem("lat")+'&longitude='+localStorage.getItem("log"),'GET')
         .then( res=>{
             //请求成功
-            console.log(res)
            this.setState({
             resShopList:res
            })
@@ -181,7 +180,6 @@ class MsiteIndex extends Component{
         fetchRequest('/shopping/restaurants?latitude='+localStorage.getItem("lat")+'&longitude='+localStorage.getItem("log"),'GET')
         .then( res=>{
             //请求成功
-            console.log(res[i].id)
             // console.log(this.state.resShopList[res[i].id-1])
             // console.log(this.state.resShopList[res[i].id].image_path)
             

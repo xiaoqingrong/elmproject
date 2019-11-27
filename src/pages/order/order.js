@@ -11,11 +11,19 @@ export default class Order extends Component{
     render(){
         return(
             <div>
-                <Header/>
-                Order
+                <Header
+                Search={()=>{
+                    this.props.history.push({pathname:"./search"}); 
+                }}
+                goMy={()=>{
+                    this.props.history.push('./msiteIndex'); 
+                    // this.props.history.push({pathname:"./msiteIndex"}); 
+                }}/>
+                <div style={{paddingTop:40}}>order</div>
                 <Footer goBack3={()=>{
                         this.props.history.push('./order'); 
-                    }}/>
+                    }}
+                    />
             </div>
         )
     }
