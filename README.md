@@ -25,6 +25,6 @@ npm start
 
 如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
-推荐一个 vue2 + vuex 构建的 45 个页面的大型开源项目。地址在这里
+推荐一个 vue2 + vuex 构建的 45 个页面的大型开源项目。[地址在这里](https://github.com/bailicangdu/vue2-elm)
 
-另外一个 vue2 + vuex 的简单项目，非常适合入门练习。地址在这里
+另外一个 vue2 + vuex 的简单项目，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
