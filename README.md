@@ -1,68 +1,42 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## About
+此项目是 react + antd-design 构建的elm项目，所有的数据都是从服务器实时获取的真实数据。这些数据都是根据一个大佬的项目中拿来用的，我看他只有vue写elm项目。我也跟着他的接口跟着写啦基于react的elm版本。因为代码基本上都是自己边学边写的，但我都花了很多时间学好才用到上面的，写得可能技术上有些欠缺。我觉得对于react入门进阶还是有点点帮助的。因为我写了这个项目以后，感觉学到东西还是不少的。
 
-In the project directory, you can run:
+### `技术栈`
+react + redux + webpack + react-router + ES6/7/8 + fetch
 
-### `npm start`
+### `运行方式`
+git clone https://github.com/xiaoqingrong/elmproject.git
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+cd elmproject
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+npm install 或 yarn(推荐)
 
-### `npm test`
+npm start
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `说明`
 
-### `npm run build`
+本项目主要用于理解 react 和 redux 的编译方式，以及 react + redux 之间的配合方式
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+如果觉得不错的话，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
-### `npm run eject`
+推荐一个 vue2 + vuex 构建的 45 个页面的大型开源项目。[地址在这里](https://github.com/bailicangdu/vue2-elm)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+另外一个 vue2 + vuex 的简单项目，非常适合入门练习。[地址在这里](https://github.com/bailicangdu/vue2-happyfri)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `部分截图`
+![main](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/main.png)
+![city](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/city.png)
+![mainindex](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/mainindex.png)
+![food](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/food.png)
+![list](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/list.png)
+![serch](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/search.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `个人总结`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
