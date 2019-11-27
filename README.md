@@ -31,9 +31,9 @@ npm start
 
 
 ### `部分截图`
+![main](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/main.png)
 ![city](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/city.png)
+![mainindex](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/mainindex.png)
 ![food](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/food.png)
 ![list](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/list.png)
-![main](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/main.png)
-![mainindex](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/mainindex.png)
 ![serch](https://github.com/xiaoqingrong/elmproject/blob/master/src/assets/projectImg/search.png)
