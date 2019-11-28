@@ -9,7 +9,7 @@ react + redux + webpack + react-router + ES6/7/8 + fetch
 ### `运行方式`
 git clone https://github.com/xiaoqingrong/elmproject.git
 ### `在线预览地址`
-[地址在这里](http://jecksonli.com/elm)
+http://jecksonli.com/elm
 
 cd elmproject
 
