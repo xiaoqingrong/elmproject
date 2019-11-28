@@ -7,7 +7,7 @@ import Order from '../pages/order/order';
 import Self from '../pages/self/self';
 import Food from '../pages/food/food';
 import ShopList from '../pages/shopList/shopList';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 
 export default class RouteConfig extends React.Component{
@@ -18,7 +18,7 @@ export default class RouteConfig extends React.Component{
     }
     render(){ 
         return(
-            <BrowserRouter>
+            <HashRouter>
                 <Switch>
                     <Route path="/" exact component={Main}/>
                     <Route path="/city" component={City}/>
@@ -29,7 +29,7 @@ export default class RouteConfig extends React.Component{
                     <Route path="/food" component={Food}/>
                     <Route path="/shopList" component={ShopList}/>
                 </Switch>
-            </BrowserRouter>
+            </HashRouter>
         )  
     }
 }
