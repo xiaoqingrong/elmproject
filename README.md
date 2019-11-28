@@ -48,4 +48,4 @@ npm start
 （3）redux:action、reducer、store三个文件分开写，（高度耦合、统一封装）使用combineReducers，applyMiddleware等来实现更多操作。
 （4）数据获取封装:数据请求封装要综合考虑，复用简单快捷，本项目使用的是fetch，建议还是使用axios封装好的，可以follow" 一下，这个我有的，我也会没事多做一些实用的东西给大家。
 ### `个人声明`
-本人不是大神，如果代码有问题，Issues 中提，可以互相交流，不喜勿喷，谢谢。
+如果代码有问题，Issues 中提，可以互相交流，不喜勿喷，谢谢。
